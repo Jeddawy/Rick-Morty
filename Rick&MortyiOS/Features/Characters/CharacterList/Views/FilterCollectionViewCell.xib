@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="FilterCollectionViewCell" customModule="Ricky_Morty" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="205" height="71"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="205" height="71"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0HU-U6-4zr">
+                        <rect key="frame" x="10" y="10" width="185" height="76"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lmd-sq-IM2">
+                                <rect key="frame" x="5" y="27.666666666666664" width="175" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Lmd-sq-IM2" firstAttribute="centerY" secondItem="0HU-U6-4zr" secondAttribute="centerY" id="NKI-hh-YwQ"/>
+                            <constraint firstAttribute="trailing" secondItem="Lmd-sq-IM2" secondAttribute="trailing" constant="5" id="YaT-qR-A22"/>
+                            <constraint firstItem="Lmd-sq-IM2" firstAttribute="centerX" secondItem="0HU-U6-4zr" secondAttribute="centerX" id="yil-Jl-BF7"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="0HU-U6-4zr" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="2Nf-gI-2rI"/>
+                <constraint firstAttribute="trailing" secondItem="0HU-U6-4zr" secondAttribute="trailing" constant="10" id="JbU-PT-HKg"/>
+                <constraint firstItem="0HU-U6-4zr" firstAttribute="centerX" secondItem="ZTg-uK-7eu" secondAttribute="centerX" id="U2h-V6-8Cg"/>
+                <constraint firstItem="0HU-U6-4zr" firstAttribute="centerY" secondItem="ZTg-uK-7eu" secondAttribute="centerY" id="Xyp-1v-4Uo"/>
+            </constraints>
+            <size key="customSize" width="205" height="71"/>
+            <connections>
+                <outlet property="filterLabel" destination="Lmd-sq-IM2" id="FmA-1f-TBg"/>
+            </connections>
+            <point key="canvasLocation" x="60.305343511450381" y="27.112676056338028"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
