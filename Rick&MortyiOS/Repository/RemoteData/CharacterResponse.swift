@@ -14,6 +14,12 @@ struct CharacterResponse: Codable {
     let species: String?
     let gender: String?
     let image: String?
+    let location: LocationResponse?
+}
+
+struct LocationResponse: Codable {
+    let name: String?
+    let url: String?
 }
 
 struct PaginatedResponse<T: Codable>: Codable {

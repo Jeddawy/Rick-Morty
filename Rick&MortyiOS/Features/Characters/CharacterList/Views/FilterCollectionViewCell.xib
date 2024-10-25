@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="FilterCollectionViewCell" customModule="Ricky_Morty" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="FilterCollectionViewCell" customModule="Rick_MortyiOS" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="205" height="71"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -21,8 +21,8 @@
                         <rect key="frame" x="10" y="10" width="185" height="76"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lmd-sq-IM2">
-                                <rect key="frame" x="5" y="27.666666666666664" width="175" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="10" y="28" width="165" height="20"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -30,7 +30,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Lmd-sq-IM2" firstAttribute="centerY" secondItem="0HU-U6-4zr" secondAttribute="centerY" id="NKI-hh-YwQ"/>
-                            <constraint firstAttribute="trailing" secondItem="Lmd-sq-IM2" secondAttribute="trailing" constant="5" id="YaT-qR-A22"/>
+                            <constraint firstAttribute="trailing" secondItem="Lmd-sq-IM2" secondAttribute="trailing" constant="10" id="YaT-qR-A22"/>
                             <constraint firstItem="Lmd-sq-IM2" firstAttribute="centerX" secondItem="0HU-U6-4zr" secondAttribute="centerX" id="yil-Jl-BF7"/>
                         </constraints>
                     </view>
@@ -45,6 +45,7 @@
             </constraints>
             <size key="customSize" width="205" height="71"/>
             <connections>
+                <outlet property="containerView" destination="0HU-U6-4zr" id="qWR-iN-hhm"/>
                 <outlet property="filterLabel" destination="Lmd-sq-IM2" id="FmA-1f-TBg"/>
             </connections>
             <point key="canvasLocation" x="60.305343511450381" y="27.112676056338028"/>

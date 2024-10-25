@@ -10,11 +10,12 @@ import UIKit
 class FilterCollectionViewCell: UICollectionViewCell {
     static let ID = "FilterCollectionViewCell"
     
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var filterLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        containerView.cornerStylish(color: UIColor.lightGray.withAlphaComponent(0.3), borderWidth: 1.0, cornerRadius: 10)
     }
     
     func bind(text: String){

@@ -15,14 +15,15 @@ class CharacterRepository: CharacterRepositoryProtocol {
     func fetchCharacters(page: Int, status: CharacterStatus?) async throws -> (characters: [CharacterModel], hasNextPage: Bool) {
          let response: PaginatedResponse<CharacterResponse> = try await apiClient.request(.characters(page: page, status: status))
          
-         let characters = response.results?.map { dto in
+         let characters = response.results?.map { character in
              CharacterModel(
-                 id: dto.id ?? 0,
-                 name: dto.name ?? "",
-                 status: CharacterStatus(rawValue: dto.status ?? "Unknown") ?? .unknown,
-                 species: dto.species ?? "",
-                 gender: dto.gender ?? "",
-                 imageUrl: dto.image ?? ""
+                 id: character.id ?? 0,
+                 name: character.name ?? "",
+                 status: CharacterStatus(rawValue: character.status ?? "Unknown") ?? .unknown,
+                 species: character.species ?? "",
+                 gender: character.gender ?? "",
+                 imageUrl: character.image ?? "",
+                 location: LocationModel(name: character.location?.name ?? "", url: character.location?.url ?? "")
              )
          }
          

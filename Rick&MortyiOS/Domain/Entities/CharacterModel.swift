@@ -14,6 +14,12 @@ struct CharacterModel {
     let species: String
     let gender: String
     let imageUrl: String
+    let location: LocationModel
+}
+
+struct LocationModel {
+    var name: String
+    var url: String
 }
 
 enum CharacterStatus: String {

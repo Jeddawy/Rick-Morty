@@ -35,7 +35,6 @@ class CharactersViewModel: ObservableObject {
 
     func filterCharacters(at index: Int) {
         selectedStatus = CharacterStatus(rawValue: filterStatus[index])
-        print("selectred statis", selectedStatus?.rawValue)
         characters = []
         currentPage = 1
         hasNextPage = true
