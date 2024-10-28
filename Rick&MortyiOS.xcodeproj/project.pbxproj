@@ -36,6 +36,9 @@
 		21C6E5A32CCBD49D0060B4F0 /* UIViewController+NavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C6E5A22CCBD49D0060B4F0 /* UIViewController+NavBar.swift */; };
 		21C6E5A62CCBF3DE0060B4F0 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 21C6E5A52CCBF3DE0060B4F0 /* SDWebImage */; };
 		21C6E5AC2CCC432D0060B4F0 /* CharactersViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C6E5AB2CCC432D0060B4F0 /* CharactersViewModelTests.swift */; };
+		21C6E5B12CCF74C40060B4F0 /* FetchCharactersUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C6E5B02CCF74C40060B4F0 /* FetchCharactersUseCaseTests.swift */; };
+		21C6E5B32CCF75B60060B4F0 /* MockCharacterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C6E5B22CCF75B60060B4F0 /* MockCharacterRepository.swift */; };
+		21C6E5B52CCF75F10060B4F0 /* CharacterModel+Equitable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C6E5B42CCF75F10060B4F0 /* CharacterModel+Equitable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +91,9 @@
 		21C6E5A02CCBD1CC0060B4F0 /* UIView+Corner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Corner.swift"; sourceTree = "<group>"; };
 		21C6E5A22CCBD49D0060B4F0 /* UIViewController+NavBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+NavBar.swift"; sourceTree = "<group>"; };
 		21C6E5AB2CCC432D0060B4F0 /* CharactersViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersViewModelTests.swift; sourceTree = "<group>"; };
+		21C6E5B02CCF74C40060B4F0 /* FetchCharactersUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCharactersUseCaseTests.swift; sourceTree = "<group>"; };
+		21C6E5B22CCF75B60060B4F0 /* MockCharacterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCharacterRepository.swift; sourceTree = "<group>"; };
+		21C6E5B42CCF75F10060B4F0 /* CharacterModel+Equitable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CharacterModel+Equitable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,7 +162,9 @@
 			isa = PBXGroup;
 			children = (
 				21449AB22CCB044000039C83 /* Rick_MortyiOSTests.swift */,
-				21C6E5AB2CCC432D0060B4F0 /* CharactersViewModelTests.swift */,
+				21C6E5AD2CCF747C0060B4F0 /* Tests */,
+				21C6E5AE2CCF74860060B4F0 /* Mocks */,
+				21C6E5AF2CCF749B0060B4F0 /* Models */,
 			);
 			path = "Rick&MortyiOSTests";
 			sourceTree = "<group>";
@@ -330,6 +338,31 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		21C6E5AD2CCF747C0060B4F0 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				21C6E5AB2CCC432D0060B4F0 /* CharactersViewModelTests.swift */,
+				21C6E5B02CCF74C40060B4F0 /* FetchCharactersUseCaseTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+		21C6E5AE2CCF74860060B4F0 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				21C6E5B22CCF75B60060B4F0 /* MockCharacterRepository.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		21C6E5AF2CCF749B0060B4F0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				21C6E5B42CCF75F10060B4F0 /* CharacterModel+Equitable.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -497,6 +530,9 @@
 			files = (
 				21C6E5AC2CCC432D0060B4F0 /* CharactersViewModelTests.swift in Sources */,
 				21449AB32CCB044000039C83 /* Rick_MortyiOSTests.swift in Sources */,
+				21C6E5B12CCF74C40060B4F0 /* FetchCharactersUseCaseTests.swift in Sources */,
+				21C6E5B52CCF75F10060B4F0 /* CharacterModel+Equitable.swift in Sources */,
+				21C6E5B32CCF75B60060B4F0 /* MockCharacterRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

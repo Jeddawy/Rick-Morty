@@ -8,7 +8,7 @@
 import Foundation
 
 
-class CharacterRepository: CharacterRepositoryProtocol {
+class CharacterRepository: CharacterRepositoryProtocol, CharacterRepositoryInjected {
     
     private let apiClient = URLSessionAPIClient<CharacterEndpoint>()
     
@@ -31,3 +31,30 @@ class CharacterRepository: CharacterRepositoryProtocol {
       }
     
 }
+
+// MARK: - Injection Map
+
+protocol CharacterRepositoryInjected {}
+
+extension CharacterRepositoryInjected {
+    var characterRepo: CharacterRepositoryProtocol {
+        CharacterRepositoryInjectionMap.repo
+    }
+}
+
+/// Controlling the current allocated CharacterRepositoryProtocol
+/// Default value is CharacterRepository
+/// You can use this injection map as needed to change which manager is allocated
+/// You can switch between different managers as needed
+enum CharacterRepositoryInjectionMap {
+    static private(set) var repo: CharacterRepositoryProtocol = defaultManager()
+    
+    static func changeManager(to manager: CharacterRepositoryProtocol) {
+        repo = manager
+    }
+    
+    static private func defaultManager() -> CharacterRepositoryProtocol {
+        CharacterRepository()
+    }
+}
+

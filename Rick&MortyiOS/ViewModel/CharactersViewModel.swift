@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class CharactersViewModel: ObservableObject {
+class CharactersViewModel: ObservableObject, FetchCharactersUseCaseInjected {
     @Published var characters: [CharacterModel] = []
     @Published var hasNextPage: Bool = false
     @Published var isLoading: Bool = false
@@ -16,11 +16,11 @@ class CharactersViewModel: ObservableObject {
     @Published var filterStatus: [String] = ["All", "Alive", "Dead", "Unknown"]
     @Published var selectedStatus: CharacterStatus?
 
-    private let fetchCharactersUseCase: FetchCharactersUseCase = FetchCharactersUseCase(repository: CharacterRepository())
+//    private let fetchCharactersUseCase: FetchCharactersUseCase = FetchCharactersUseCase(repository: CharacterRepository())
     private var cancellables = Set<AnyCancellable>()
     private var currentPage = 1
     private var currentStatus: CharacterStatus?
-
+    
     func loadCharacters(status: CharacterStatus? = nil) {
         currentPage = 1
         currentStatus = status
