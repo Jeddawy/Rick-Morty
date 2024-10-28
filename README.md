@@ -55,3 +55,10 @@ git clone https://github.com/Jeddawy/Rick-Morty.git
   - UI updates
 - **Async/await**
   - Clean asynchronous code implementation
+
+### Demo
+
+
+https://github.com/user-attachments/assets/444b257f-d0d8-4fc0-8337-d1c7e12faf6f
+
+
