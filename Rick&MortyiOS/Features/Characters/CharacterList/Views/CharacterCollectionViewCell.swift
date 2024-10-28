@@ -32,9 +32,9 @@ class CharacterCollectionViewCell: UICollectionViewCell {
     private func setupBackgroundColor(status: CharacterStatus) {
         switch status {
         case .alive:
-            containerView.backgroundColor = UIColor(displayP3Red: 235, green: 246, blue: 251, alpha: 1)
+            containerView.backgroundColor = .systemMint.withAlphaComponent(0.1)
         case .dead:
-            containerView.backgroundColor = UIColor(displayP3Red: 248, green: 229, blue: 234, alpha: 1)
+            containerView.backgroundColor = .systemPink.withAlphaComponent(0.1)
         case .unknown:
             containerView.backgroundColor = .white
         }
