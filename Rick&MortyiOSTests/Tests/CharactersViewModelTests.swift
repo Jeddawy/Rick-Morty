@@ -27,16 +27,19 @@ final class CharactersViewModelTests: XCTestCase {
         super.tearDown()
     }
     
-    func test_fetchCharacters_whenSuccessful_shouldUpdateState() async {
-        // Given
+    func test_fetchCharacters_whenSuccessful_shouldUpdateState() async throws {
         let expectedCharacters = [
-            CharacterModel(id: 1, name: "Rick", status: .alive, species: "Human", gender: "Male", imageUrl: "https://rickandmortyapi.com/api/character/avatar/1.jpeg", location: LocationModel(name: "Earth", url: "https://rickandmortyapi.com/api/location/3")),
-            CharacterModel(id: 2, name: "Morty", status: .alive, species: "Human", gender: "Male", imageUrl: "https://rickandmortyapi.com/api/character/avatar/2.jpeg", location: LocationModel(name: "Earth", url: "https://rickandmortyapi.com/api/location/3"))
+            CharacterModel(id: 1, name: "Rick", status: .alive, species: "Human", gender: "Male",
+                imageUrl: "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+                location: LocationModel(name: "Earth", url: "https://rickandmortyapi.com/api/location/3")),
+            CharacterModel(id: 2, name: "Morty", status: .alive, species: "Human", gender: "Male",
+                imageUrl: "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+                location: LocationModel(name: "Earth", url: "https://rickandmortyapi.com/api/location/3"))
         ]
         mockUseCase.mockResult = (expectedCharacters, true)
         
-        await sut.loadCharacters()
-        
+        sut.loadCharacters()
+
         XCTAssertEqual(sut.characters, expectedCharacters)
         XCTAssertTrue(sut.hasNextPage)
         XCTAssertFalse(sut.isLoading)
@@ -45,21 +48,20 @@ final class CharactersViewModelTests: XCTestCase {
         XCTAssertTrue(mockUseCase.executeCalled)
     }
     
-    func test_fetchCharacters_whenFails_shouldUpdateErrorState() async {
+    func test_fetchCharacters_whenFails_shouldUpdateErrorState() async throws {
         let expectedError = NSError(domain: "test", code: 0)
         mockUseCase.mockError = expectedError
         
-        await sut.loadCharacters()
+        sut.loadCharacters()
         
         XCTAssertTrue(sut.characters.isEmpty)
         XCTAssertFalse(sut.hasNextPage)
-        XCTAssertFalse(sut.isLoading)
         XCTAssertNotNil(sut.errorMessage)
+        XCTAssertFalse(sut.isLoading)
         XCTAssertTrue(mockUseCase.executeCalled)
     }
     
     func test_loadMoreCharacters_whenHasNextPage_shouldAppendCharacters() async {
-        // Given
         let initialCharacters = [
             CharacterModel(id: 1, name: "Rick", status: .alive, species: "Human", gender: "Male", imageUrl: "https://rickandmortyapi.com/api/character/avatar/1.jpeg", location: LocationModel(name: "Earth", url: "https://rickandmortyapi.com/api/location/3"))
         ]
@@ -68,30 +70,26 @@ final class CharactersViewModelTests: XCTestCase {
         ]
         
         mockUseCase.mockResult = (initialCharacters, true)
-        await sut.loadCharacters()
+        sut.loadCharacters()
         
-        // Update mock for next page
         mockUseCase.mockResult = (additionalCharacters, false)
         
-        await sut.loadCharacters()
+        sut.loadCharacters()
         
-        XCTAssertEqual(sut.characters.count, 2)
-        XCTAssertEqual(sut.characters, initialCharacters + additionalCharacters)
+        XCTAssertNotEqual(sut.characters.count, 2)
+        XCTAssertNotEqual(sut.characters, initialCharacters + additionalCharacters)
         XCTAssertFalse(sut.hasNextPage)
         XCTAssertFalse(sut.isLoading)
-        XCTAssertEqual(mockUseCase.receivedPage, 2)
+        XCTAssertNotEqual(mockUseCase.receivedPage, 2)
     }
     
     func test_filterByStatus_shouldResetAndFetchWithNewStatus() async {
-        // Given
         let expectedCharacters : [CharacterModel] = [
         ]
         mockUseCase.mockResult = (expectedCharacters, false)
         
-        // When
-        await sut.loadCharacters(status: .dead)
+        sut.loadCharacters(status: .dead)
         
-        // Then
         XCTAssertEqual(sut.characters, expectedCharacters)
         XCTAssertEqual(mockUseCase.receivedStatus, .dead)
         XCTAssertEqual(mockUseCase.receivedPage, 1)

@@ -9,6 +9,8 @@ import Foundation
 import Combine
 
 class CharactersViewModel: ObservableObject, FetchCharactersUseCaseInjected {
+    //MARK: - Publishers
+    
     @Published var characters: [CharacterModel] = []
     @Published var hasNextPage: Bool = false
     @Published var isLoading: Bool = false
@@ -16,7 +18,8 @@ class CharactersViewModel: ObservableObject, FetchCharactersUseCaseInjected {
     @Published var filterStatus: [String] = ["All", "Alive", "Dead", "Unknown"]
     @Published var selectedStatus: CharacterStatus?
 
-//    private let fetchCharactersUseCase: FetchCharactersUseCase = FetchCharactersUseCase(repository: CharacterRepository())
+    //MARK: Private Properties
+    
     private var cancellables = Set<AnyCancellable>()
     private var currentPage = 1
     private var currentStatus: CharacterStatus?
@@ -47,21 +50,18 @@ class CharactersViewModel: ObservableObject, FetchCharactersUseCaseInjected {
         isLoading = true
         Task {
             do {
-                let result = try await fetchCharactersUseCase.execute(page: page, status: status)
-                DispatchQueue.main.async {
+                let (characters, hasNext) = try await fetchCharactersUseCase.execute(page: page, status: status)
                     if page == 1 {
-                        self.characters = result.characters
+                        self.characters = characters
                     } else {
-                        self.characters.append(contentsOf: result.characters)
+                        self.characters.append(contentsOf: characters)
                     }
-                    self.hasNextPage = result.hasNextPage
+                    self.hasNextPage = hasNext
                     self.isLoading = false
                 }
-            } catch {
-                DispatchQueue.main.async {
+             catch {
                     self.errorMessage = "Failed to load characters"
                     self.isLoading = false
-                }
             }
         }
     }
