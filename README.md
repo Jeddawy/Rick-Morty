@@ -56,6 +56,12 @@ git clone https://github.com/Jeddawy/Rick-Morty.git
 - **Async/await**
   - Clean asynchronous code implementation
 
+### System Design
+
+
+<img width="1040" alt="Screenshot 2024-10-29 at 3 01 34 PM" src="https://github.com/user-attachments/assets/d05f9393-7ff0-40f2-b593-9d6828a8abd1">
+
+
 ### Demo
 
 
